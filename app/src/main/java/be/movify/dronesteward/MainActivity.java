@@ -23,6 +23,6 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onScanned() {
-
+        getSupportFragmentManager().beginTransaction().replace(R.id.content, new SummaryFragment()).commit();
     }
 }
