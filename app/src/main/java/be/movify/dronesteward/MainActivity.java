@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity
-        implements LoginFragment.LoginListener, ScannerFragment.ScannerListner {
+        implements LoginFragment.LoginListener, ScannerFragment.ScannerListner, SummaryFragment.SummartyListenr {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,5 +24,10 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onScanned() {
         getSupportFragmentManager().beginTransaction().replace(R.id.content, new SummaryFragment()).commit();
+    }
+
+    @Override
+    public void onConnect() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.content, new QrCodeFragment()).commit();
     }
 }
